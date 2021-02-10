@@ -5,7 +5,7 @@ import json
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-serversocket.bind(('localhost', 8090))
+serversocket.bind(('0.0.0.0', 8090))
 
 # become a server socket, maximum 5 connections
 serversocket.listen(5) 
