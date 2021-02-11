@@ -36,8 +36,8 @@ def get_connections(serversocket):
         if len(json_objects) == 1:
             response = "HTTP/1.1 200 OK\nContent-Type: text/html\n\nJSON data posted. Disconnecting.\n"
             print(json_objects[0])
-            encResponse = response.encode('utf-8')
-            connection.send(encResponse)
+            enc_response = response.encode('utf-8')
+            connection.send(enc_response)
             connection.close()
             return data       
         else:
