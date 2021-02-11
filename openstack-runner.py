@@ -40,8 +40,14 @@ def get_connections(serversocket):
             connection.send(enc_response)
             connection.close()
             return data       
-        else:
+        elif len(json_objects) > 1:
             response = "HTTP/1.1 400 Bad Request\nContent-Type: text/html\n\nMalformed request. Too many JSON arrays provided.\n"
+            print("Got bad request.")
+            enc_response = response.encode('utf-8')
+            connection.send(enc_response)
+            connection.close()
+        else:
+            response = "HTTP/1.1 400 Bad Request\nContent-Type: text/html\n\nMalformed request.\n"
             print("Got bad request.")
             enc_response = response.encode('utf-8')
             connection.send(enc_response)
@@ -52,5 +58,3 @@ def process_data():
 
 while True:
     get_connections(serversocket)
-
-
