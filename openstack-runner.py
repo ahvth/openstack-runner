@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 # test connection with `curl --header "Content-Type: application/json" --request POST --data '{"username":"xyz","password":"xyz"}' http://localhost:8090` 
 
 import socket
